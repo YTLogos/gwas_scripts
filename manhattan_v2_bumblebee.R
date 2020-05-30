@@ -26,7 +26,9 @@ x2$CHR[x2$CHR=="25"]="XY"
 x2$CHR[x2$CHR=="26"]="MT"
 
 labels <- as.character(sort(as.numeric(unique(x2$CHR))))
-wgplot(x2, pch=".", color=c(1:25), cutoffs=4:round(-log10(min(x2$P)),0), labels=labels )
+bumblebee<-c("orange",rep.int(c("orange","black"),12))
+
+wgplot(x2, pch=".", color=bumblebee, cutoffs=4:round(-log10(min(x2$P)),0), labels=labels )
 
 for (i in 4:20) abline(h=i, col="grey", lty="dotted")
 
@@ -43,7 +45,7 @@ p    <- p[ord]
 lens.chr <- as.vector(table(as.numeric(chr)))
 CM <- cumsum(lens.chr)
 n.chr <- length(lens.chr)
-color=c(1:25)
+color=bumblebee
 color <- rep(color,ceiling(n.chr/length(color)))
 
 p <- -log(p,10)
